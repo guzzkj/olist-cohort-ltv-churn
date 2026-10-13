@@ -1,0 +1,6 @@
+# Raw Olist data: download from Kaggle (CC BY-NC-SA 4.0), not redistributed here
+data/raw/
+*.duckdb
+*.duckdb.wal
+__pycache__/
+.venv/
