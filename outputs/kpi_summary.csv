@@ -1,0 +1,2 @@
+orders,customers,repeat_customer_pct,avg_first_order_value,ltv_12m,cac_ceiling,ltv_to_first_order,churn_180d_pct,median_days_to_2nd_order
+98205,94697,2.17,160.71,168.26,168.26,1.046,98.84,74

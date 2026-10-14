@@ -1,0 +1,9 @@
+payment_segment,customers,avg_first_order_value,ltv_12m,repeat_rate_12m_pct,ltv_to_first_order
+voucher,939,113.58,118.57,3.73,1.044
+boleto,5580,147.51,154.25,2.97,1.046
+credit_card 4-6x,4623,168.58,176.17,3.81,1.045
+credit_card 1x,5172,106.21,111.95,3.02,1.054
+credit_card 2-3x,5828,124.04,129.95,3.29,1.048
+debit_card,229,103.93,108.27,3.49,1.042
+credit_card 7x+,3637,323.66,337.74,3.96,1.044
+all,26008,160.81,168.26,3.37,1.046
