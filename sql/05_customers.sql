@@ -12,6 +12,7 @@ WITH per_customer AS (
     customer_id,
     cohort_month,
     payment_segment,
+    customer_state,
     first_payment_type,
     first_installments,
     MIN(purchase_date)                                     AS first_purchase_date,
@@ -22,7 +23,7 @@ WITH per_customer AS (
     SUM(order_value)                                       AS total_value,
     MIN(IF(is_repeat, days_since_first_order, NULL))       AS days_to_2nd_order
   FROM olist_mart.customer_orders
-  GROUP BY customer_id, cohort_month, payment_segment, first_payment_type, first_installments
+  GROUP BY customer_id, cohort_month, payment_segment, customer_state, first_payment_type, first_installments
 )
 
 SELECT

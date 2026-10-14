@@ -5,6 +5,7 @@
 -- * is_repeat      = order placed on a later day than the first order.
 --                    Same-day extra orders are split carts, not repurchases.
 -- * payment_segment = how the customer paid the FIRST order (fintech hook).
+-- * customer_state  = state of the FIRST order (customers can move between orders).
 -- Cohorts start in 2017-01; the 2016 months are too sparse to analyse.
 
 CREATE OR REPLACE TABLE olist_mart.customer_orders AS
@@ -24,7 +25,8 @@ first_order AS (
   SELECT
     customer_id,
     main_payment_type AS first_payment_type,
-    installments      AS first_installments
+    installments      AS first_installments,
+    customer_state
   FROM sequenced
   WHERE order_seq = 1
 )
@@ -44,6 +46,7 @@ SELECT
   s.purchase_date > s.first_purchase_date                  AS is_repeat,
   f.first_payment_type,
   f.first_installments,
+  f.customer_state,
   CASE
     WHEN f.first_payment_type <> 'credit_card' THEN f.first_payment_type
     WHEN f.first_installments <= 1 THEN 'credit_card 1x'

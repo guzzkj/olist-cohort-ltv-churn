@@ -2,6 +2,7 @@
 -- Grain: order_id.
 -- * Swaps the per-order customer_id for customer_unique_id (the real person key).
 -- * Order value = sum of all payments (product + freight), i.e. GMV.
+-- * customer_state = state (UF) of the delivery address on this order.
 -- * Main payment type = the method that paid the largest share of the order.
 -- * Drops canceled/unavailable orders and the sparse tail after 2018-08 (analysis cutoff).
 
@@ -29,6 +30,7 @@ payment_ranked AS (
 SELECT
   o.order_id,
   c.customer_unique_id                                 AS customer_id,
+  c.customer_state,
   o.order_status,
   o.order_purchase_timestamp                           AS purchased_at,
   DATE(o.order_purchase_timestamp)                     AS purchase_date,

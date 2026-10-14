@@ -30,6 +30,9 @@ EXPORT_TABLES = [
     "cohort_ltv",
     "segment_ltv",
     "repurchase_curve",
+    "f_customers",
+    "f_cohort_month",
+    "f_repurchase",
 ]
 
 
